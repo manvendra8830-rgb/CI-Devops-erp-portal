@@ -24,5 +24,4 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy to S3
-        run: |
-          aws s3 sync . s3://${{ secrets.s3-erp-2026  }} --delete
+        run: aws s3 sync . s3://s3-erp-2026 --delete
