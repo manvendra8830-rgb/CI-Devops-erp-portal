@@ -1,0 +1,1669 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="EduCore - Advanced School and University ERP Portal"
+    >
+
+    <title>EduCore ERP | Education Management Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<!-- =========================
+     APP LOADER
+========================= -->
+
+<div class="app-loader" id="appLoader">
+    <div class="loader-content">
+        <div class="loader-logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <h2>EduCore</h2>
+        <p>Loading ERP Portal...</p>
+
+        <div class="loader-bar">
+            <span></span>
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div>
+            <h2>EduCore</h2>
+            <span>ERP SYSTEM</span>
+        </div>
+    </div>
+
+    <div class="sidebar-profile">
+        <div class="avatar avatar-admin">
+            MS
+        </div>
+
+        <div>
+            <strong>Manvendra Singh</strong>
+            <span>Administrator</span>
+        </div>
+
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">MAIN</p>
+
+        <a href="#" class="nav-link active" data-page="dashboard">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="students">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Students</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="faculty">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Faculty</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="departments">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Departments</span>
+        </a>
+
+
+        <p class="nav-title">ACADEMICS</p>
+
+        <a href="#" class="nav-link" data-page="attendance">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Attendance</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="exams">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Examinations</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="timetable">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Timetable</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="library">
+            <i class="fa-solid fa-book"></i>
+            <span>Library</span>
+        </a>
+
+
+        <p class="nav-title">FINANCE</p>
+
+        <a href="#" class="nav-link" data-page="fees">
+            <i class="fa-solid fa-wallet"></i>
+            <span>Fees & Payments</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="reports">
+            <i class="fa-solid fa-chart-column"></i>
+            <span>Reports</span>
+        </a>
+
+
+        <p class="nav-title">SYSTEM</p>
+
+        <a href="#" class="nav-link" data-page="notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span>Notifications</span>
+            <b class="notification-count">7</b>
+        </a>
+
+        <a href="#" class="nav-link" data-page="settings">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        <div class="storage-info">
+            <div class="storage-header">
+                <span>Storage</span>
+                <strong>72%</strong>
+            </div>
+
+            <div class="storage-bar">
+                <span></span>
+            </div>
+
+            <small>7.2 GB of 10 GB used</small>
+        </div>
+
+        <button class="logout-btn" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="main-content">
+
+    <!-- TOP HEADER -->
+
+    <header class="top-header">
+
+        <div class="header-left">
+
+            <button class="icon-btn menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>EduCore</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong id="pageTitle">Dashboard</strong>
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <!-- SEARCH -->
+
+            <div class="global-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="globalSearch"
+                    placeholder="Search anything..."
+                    autocomplete="off"
+                >
+
+                <kbd>Ctrl K</kbd>
+
+                <div class="search-results" id="searchResults"></div>
+
+            </div>
+
+
+            <!-- THEME -->
+
+            <button
+                class="icon-btn"
+                id="themeToggle"
+                title="Toggle theme"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <button
+                class="icon-btn notification-btn"
+                id="notificationBtn"
+            >
+                <i class="fa-regular fa-bell"></i>
+                <span></span>
+            </button>
+
+
+            <!-- PROFILE -->
+
+            <button class="header-profile">
+
+                <div class="avatar">
+                    MS
+                </div>
+
+                <div class="profile-text">
+                    <strong>Manvendra</strong>
+                    <span>Admin</span>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE CONTAINER -->
+
+    <section class="page-container" id="pageContainer">
+
+
+        <!-- =====================================
+             DASHBOARD
+        ====================================== -->
+
+        <div class="page active-page" id="dashboardPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">
+                        SATURDAY, SEPTEMBER 05, 2026
+                    </span>
+
+                    <h1>Good afternoon, Manvendra 👋</h1>
+
+                    <p>
+                        Here's what's happening across your institution today.
+                    </p>
+                </div>
+
+                <div class="heading-actions">
+
+                    <button class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i>
+                        Export
+                    </button>
+
+                    <button class="btn btn-primary" id="addStudentBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Student
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+
+                    <div class="stat-icon students-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Total Students</span>
+
+                        <h2 data-counter="12845">12,845</h2>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            8.2% this year
+                        </small>
+
+                    </div>
+
+                    <div class="stat-menu">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon faculty-icon">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Total Faculty</span>
+
+                        <h2 data-counter="684">684</h2>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            4.1% this year
+                        </small>
+
+                    </div>
+
+                    <div class="stat-menu">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon attendance-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Avg. Attendance</span>
+
+                        <h2>94.8%</h2>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            2.3% this month
+                        </small>
+
+                    </div>
+
+                    <div class="stat-menu">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon revenue-icon">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Total Revenue</span>
+
+                        <h2>₹84.6L</h2>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            12.8% this month
+                        </small>
+
+                    </div>
+
+                    <div class="stat-menu">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ANALYTICS -->
+
+            <div class="dashboard-grid">
+
+                <article class="panel analytics-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Enrollment Analytics</h3>
+                            <p>Student enrollment over the last 12 months</p>
+                        </div>
+
+                        <select id="chartPeriod">
+                            <option>Last 12 Months</option>
+                            <option>Last 6 Months</option>
+                            <option>This Year</option>
+                        </select>
+
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="enrollmentChart"></canvas>
+                    </div>
+
+                </article>
+
+
+                <article class="panel attendance-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Attendance Overview</h3>
+                            <p>Current academic year</p>
+                        </div>
+
+                        <button class="more-btn">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="attendance-circle">
+
+                        <div class="circle">
+                            <strong>94.8%</strong>
+                            <span>Overall</span>
+                        </div>
+
+                    </div>
+
+                    <div class="attendance-legend">
+
+                        <div>
+                            <span class="legend-dot present"></span>
+                            <span>Present</span>
+                            <strong>94.8%</strong>
+                        </div>
+
+                        <div>
+                            <span class="legend-dot absent"></span>
+                            <span>Absent</span>
+                            <strong>3.1%</strong>
+                        </div>
+
+                        <div>
+                            <span class="legend-dot late"></span>
+                            <span>Late</span>
+                            <strong>2.1%</strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- LOWER GRID -->
+
+            <div class="dashboard-grid lower-grid">
+
+                <!-- RECENT STUDENTS -->
+
+                <article class="panel table-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Recently Enrolled</h3>
+                            <p>Latest students added to the system</p>
+                        </div>
+
+                        <button
+                            class="text-btn"
+                            data-page-link="students"
+                        >
+                            View all
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Course</th>
+                                    <th>Enrollment</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="recentStudents">
+
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar avatar-blue">RS</div>
+                                            <div>
+                                                <strong>Rahul Sharma</strong>
+                                                <span>STU-2026-001</span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>B.Tech CSE</td>
+                                    <td>Sep 04, 2026</td>
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar avatar-purple">AS</div>
+                                            <div>
+                                                <strong>Aman Singh</strong>
+                                                <span>STU-2026-002</span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>BCA</td>
+                                    <td>Sep 03, 2026</td>
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar avatar-orange">PK</div>
+                                            <div>
+                                                <strong>Priya Kumari</strong>
+                                                <span>STU-2026-003</span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>MBA</td>
+                                    <td>Sep 02, 2026</td>
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <article class="panel quick-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Quick Actions</h3>
+                            <p>Frequently used actions</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <button class="quick-action" data-action="student">
+
+                            <span class="quick-icon blue">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </span>
+
+                            <span>
+                                <strong>Add Student</strong>
+                                <small>Register new student</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+
+                        <button class="quick-action" data-action="attendance">
+
+                            <span class="quick-icon green">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </span>
+
+                            <span>
+                                <strong>Mark Attendance</strong>
+                                <small>Record today's attendance</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+
+                        <button class="quick-action" data-action="fee">
+
+                            <span class="quick-icon orange">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </span>
+
+                            <span>
+                                <strong>Record Payment</strong>
+                                <small>Add fee payment</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+
+                        <button class="quick-action" data-action="notice">
+
+                            <span class="quick-icon purple">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </span>
+
+                            <span>
+                                <strong>Post Announcement</strong>
+                                <small>Notify students & faculty</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ACTIVITY -->
+
+            <article class="panel activity-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Recent Activity</h3>
+                        <p>Latest system activities</p>
+                    </div>
+
+                    <button class="text-btn">
+                        View history
+                    </button>
+
+                </div>
+
+
+                <div class="activity-list">
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon green">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <div class="activity-content">
+                            <strong>New student registered</strong>
+                            <p>Rahul Sharma was added to B.Tech CSE.</p>
+                        </div>
+
+                        <time>5 min ago</time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon blue">
+                            <i class="fa-solid fa-money-bill"></i>
+                        </div>
+
+                        <div class="activity-content">
+                            <strong>Fee payment received</strong>
+                            <p>₹45,000 received from Aman Singh.</p>
+                        </div>
+
+                        <time>28 min ago</time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon purple">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div class="activity-content">
+                            <strong>Exam schedule published</strong>
+                            <p>Semester examination schedule is now available.</p>
+                        </div>
+
+                        <time>1 hr ago</time>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- =====================================
+             OTHER PAGES
+        ====================================== -->
+
+        <div class="page" id="studentsPage">
+
+            <div class="page-heading">
+                <div>
+                    <span class="eyebrow">STUDENT MANAGEMENT</span>
+                    <h1>Students</h1>
+                    <p>Manage students, enrollment and academic information.</p>
+                </div>
+
+                <button class="btn btn-primary" id="studentPageAddBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Student
+                </button>
+            </div>
+
+
+            <div class="stats-grid compact-stats">
+
+                <div class="mini-stat">
+                    <span>Total Students</span>
+                    <strong>12,845</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>Active</span>
+                    <strong>12,214</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>New This Month</span>
+                    <strong>428</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>Graduating</span>
+                    <strong>1,240</strong>
+                </div>
+
+            </div>
+
+
+            <article class="panel">
+
+                <div class="table-toolbar">
+
+                    <div class="table-search">
+                        <i class="fa-solid fa-search"></i>
+                        <input
+                            type="search"
+                            id="studentSearch"
+                            placeholder="Search students..."
+                        >
+                    </div>
+
+                    <div class="toolbar-actions">
+
+                        <select id="courseFilter">
+                            <option value="">All Courses</option>
+                            <option>B.Tech CSE</option>
+                            <option>BCA</option>
+                            <option>MBA</option>
+                            <option>BBA</option>
+                        </select>
+
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option>Active</option>
+                            <option>Pending</option>
+                            <option>Graduated</option>
+                        </select>
+
+                        <button class="btn btn-secondary">
+                            <i class="fa-solid fa-download"></i>
+                            Export
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Student</th>
+                                <th>Course</th>
+                                <th>Semester</th>
+                                <th>Attendance</th>
+                                <th>Fees</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="studentTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="page" id="facultyPage">
+
+            <div class="page-heading">
+                <div>
+                    <span class="eyebrow">FACULTY MANAGEMENT</span>
+                    <h1>Faculty</h1>
+                    <p>Manage teaching staff and faculty assignments.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Faculty
+                </button>
+            </div>
+
+
+            <div class="faculty-grid" id="facultyGrid"></div>
+
+        </div>
+
+
+        <div class="page" id="departmentsPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">ACADEMIC STRUCTURE</span>
+                    <h1>Departments</h1>
+                    <p>Manage departments, courses and academic programs.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Department
+                </button>
+
+            </div>
+
+            <div class="department-grid">
+
+                <div class="department-card">
+                    <div class="department-icon blue">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>Computer Science</h3>
+                    <p>6 Programs · 2,840 Students</p>
+                    <span>86 Faculty</span>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-icon orange">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3>Mechanical Engineering</h3>
+                    <p>4 Programs · 1,640 Students</p>
+                    <span>58 Faculty</span>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-icon purple">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Management</h3>
+                    <p>5 Programs · 1,920 Students</p>
+                    <span>72 Faculty</span>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-icon green">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <h3>Science</h3>
+                    <p>8 Programs · 2,140 Students</p>
+                    <span>94 Faculty</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page" id="attendancePage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">ACADEMIC TRACKING</span>
+                    <h1>Attendance</h1>
+                    <p>Monitor student attendance across all classes.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-check"></i>
+                    Mark Attendance
+                </button>
+
+            </div>
+
+
+            <div class="attendance-summary">
+
+                <div class="attendance-summary-card">
+                    <span>Overall Attendance</span>
+                    <strong>94.8%</strong>
+                    <small class="positive">↑ 2.3%</small>
+                </div>
+
+                <div class="attendance-summary-card">
+                    <span>Present Today</span>
+                    <strong>11,924</strong>
+                    <small>92.8%</small>
+                </div>
+
+                <div class="attendance-summary-card">
+                    <span>Absent Today</span>
+                    <strong>612</strong>
+                    <small>4.8%</small>
+                </div>
+
+                <div class="attendance-summary-card">
+                    <span>Low Attendance</span>
+                    <strong>309</strong>
+                    <small class="negative">Needs attention</small>
+                </div>
+
+            </div>
+
+
+            <article class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Today's Attendance</h3>
+                        <p>September 05, 2026</p>
+                    </div>
+
+                    <select>
+                        <option>All Departments</option>
+                        <option>Computer Science</option>
+                        <option>Management</option>
+                        <option>Science</option>
+                    </select>
+
+                </div>
+
+
+                <div class="attendance-table">
+
+                    <div class="attendance-row attendance-header">
+                        <span>Class</span>
+                        <span>Present</span>
+                        <span>Absent</span>
+                        <span>Attendance</span>
+                        <span>Status</span>
+                    </div>
+
+                    <div class="attendance-row">
+                        <span>B.Tech CSE - Sem 5</span>
+                        <span>84</span>
+                        <span>4</span>
+                        <span>95.4%</span>
+                        <span class="status active">Excellent</span>
+                    </div>
+
+                    <div class="attendance-row">
+                        <span>BCA - Sem 3</span>
+                        <span>71</span>
+                        <span>7</span>
+                        <span>91.0%</span>
+                        <span class="status active">Good</span>
+                    </div>
+
+                    <div class="attendance-row">
+                        <span>MBA - Sem 2</span>
+                        <span>62</span>
+                        <span>8</span>
+                        <span>88.5%</span>
+                        <span class="status pending">Average</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="page" id="examsPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">EXAMINATION</span>
+                    <h1>Examinations</h1>
+                    <p>Manage exams, marks, results and academic performance.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Exam
+                </button>
+
+            </div>
+
+
+            <div class="exam-grid">
+
+                <div class="exam-card">
+                    <span class="exam-status upcoming">UPCOMING</span>
+                    <h3>Semester Examination</h3>
+                    <p>B.Tech · Semester 5</p>
+                    <strong>September 15, 2026</strong>
+                    <span>12 Subjects</span>
+                </div>
+
+                <div class="exam-card">
+                    <span class="exam-status active">ACTIVE</span>
+                    <h3>Internal Assessment</h3>
+                    <p>BCA · Semester 3</p>
+                    <strong>September 05, 2026</strong>
+                    <span>8 Subjects</span>
+                </div>
+
+                <div class="exam-card">
+                    <span class="exam-status completed">COMPLETED</span>
+                    <h3>Mid-Term Examination</h3>
+                    <p>MBA · Semester 2</p>
+                    <strong>August 20, 2026</strong>
+                    <span>10 Subjects</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page" id="timetablePage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">ACADEMIC SCHEDULE</span>
+                    <h1>Timetable</h1>
+                    <p>Manage classes, rooms and faculty schedules.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Schedule
+                </button>
+
+            </div>
+
+
+            <article class="panel timetable-panel">
+
+                <div class="timetable-toolbar">
+
+                    <button class="day-btn active">Monday</button>
+                    <button class="day-btn">Tuesday</button>
+                    <button class="day-btn">Wednesday</button>
+                    <button class="day-btn">Thursday</button>
+                    <button class="day-btn">Friday</button>
+
+                </div>
+
+
+                <div class="timetable">
+
+                    <div class="time-column">
+
+                        <span>09:00</span>
+                        <span>10:00</span>
+                        <span>11:00</span>
+                        <span>12:00</span>
+                        <span>01:00</span>
+                        <span>02:00</span>
+
+                    </div>
+
+
+                    <div class="schedule-column">
+
+                        <div class="schedule-card blue-card">
+                            <strong>Database Management</strong>
+                            <span>Room 204 · Dr. Sharma</span>
+                        </div>
+
+                        <div class="schedule-card purple-card">
+                            <strong>Operating Systems</strong>
+                            <span>Room 302 · Prof. Kumar</span>
+                        </div>
+
+                        <div class="schedule-break">
+                            Lunch Break
+                        </div>
+
+                        <div class="schedule-card green-card">
+                            <strong>Computer Networks</strong>
+                            <span>Lab 04 · Dr. Singh</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="page" id="libraryPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">LIBRARY MANAGEMENT</span>
+                    <h1>Library</h1>
+                    <p>Books, issues, returns and library records.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Book
+                </button>
+
+            </div>
+
+
+            <div class="library-stats">
+
+                <div class="mini-stat">
+                    <span>Total Books</span>
+                    <strong>48,290</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>Issued</span>
+                    <strong>3,842</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>Available</span>
+                    <strong>44,448</strong>
+                </div>
+
+                <div class="mini-stat">
+                    <span>Overdue</span>
+                    <strong>182</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page" id="feesPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">FINANCIAL MANAGEMENT</span>
+                    <h1>Fees & Payments</h1>
+                    <p>Track fee collection, payments and outstanding balances.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Record Payment
+                </button>
+
+            </div>
+
+
+            <div class="finance-grid">
+
+                <div class="finance-card">
+                    <span>Total Collection</span>
+                    <strong>₹84.6L</strong>
+                    <small class="positive">↑ 12.8%</small>
+                </div>
+
+                <div class="finance-card">
+                    <span>Pending Fees</span>
+                    <strong>₹25.6L</strong>
+                    <small class="negative">2,148 students</small>
+                </div>
+
+                <div class="finance-card">
+                    <span>Today's Collection</span>
+                    <strong>₹4.82L</strong>
+                    <small class="positive">↑ 8.4%</small>
+                </div>
+
+                <div class="finance-card">
+                    <span>Collection Rate</span>
+                    <strong>79.3%</strong>
+                    <small>Current year</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page" id="reportsPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">ANALYTICS</span>
+                    <h1>Reports</h1>
+                    <p>Generate insights and institutional reports.</p>
+                </div>
+
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-file-export"></i>
+                    Generate Report
+                </button>
+
+            </div>
+
+
+            <div class="report-grid">
+
+                <div class="report-card">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <h3>Student Report</h3>
+                    <p>Enrollment and student demographics.</p>
+                    <button>Generate</button>
+                </div>
+
+                <div class="report-card">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>Attendance Report</h3>
+                    <p>Attendance trends and low attendance.</p>
+                    <button>Generate</button>
+                </div>
+
+                <div class="report-card">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <h3>Finance Report</h3>
+                    <p>Collection and outstanding fees.</p>
+                    <button>Generate</button>
+                </div>
+
+                <div class="report-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Performance Report</h3>
+                    <p>Academic performance analysis.</p>
+                    <button>Generate</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page" id="notificationsPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">SYSTEM CENTER</span>
+                    <h1>Notifications</h1>
+                    <p>Stay updated with important institutional activities.</p>
+                </div>
+
+                <button class="btn btn-secondary" id="markReadBtn">
+                    Mark all as read
+                </button>
+
+            </div>
+
+
+            <article class="panel notification-list">
+
+                <div class="notification-item unread">
+                    <div class="notification-icon blue">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+
+                    <div>
+                        <strong>New student registered</strong>
+                        <p>Rahul Sharma has been successfully registered.</p>
+                        <small>5 minutes ago</small>
+                    </div>
+                </div>
+
+
+                <div class="notification-item unread">
+                    <div class="notification-icon orange">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+
+                    <div>
+                        <strong>Fee payment pending</strong>
+                        <p>2,148 students have outstanding payments.</p>
+                        <small>32 minutes ago</small>
+                    </div>
+                </div>
+
+
+                <div class="notification-item">
+                    <div class="notification-icon green">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div>
+                        <strong>Exam schedule published</strong>
+                        <p>Semester examination schedule is available.</p>
+                        <small>1 hour ago</small>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="page" id="settingsPage">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">SYSTEM CONFIGURATION</span>
+                    <h1>Settings</h1>
+                    <p>Manage your ERP preferences and account.</p>
+                </div>
+
+            </div>
+
+
+            <article class="panel settings-panel">
+
+                <div class="settings-section">
+
+                    <h3>Appearance</h3>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Dark Mode</strong>
+                            <p>Use dark theme across the ERP portal.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                id="settingsTheme"
+                            >
+                            <span></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-section">
+
+                    <h3>Notifications</h3>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Email Notifications</strong>
+                            <p>Receive important ERP notifications.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     MOBILE OVERLAY
+========================= -->
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal-overlay" id="modalOverlay">
+
+    <div class="modal" id="mainModal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2 id="modalTitle">Add Student</h2>
+                <p id="modalSubtitle">
+                    Enter student information.
+                </p>
+            </div>
+
+            <button class="modal-close" id="modalClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>First Name</label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Enter first name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Last Name</label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Enter last name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="studentEmail"
+                        placeholder="student@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="tel"
+                        id="studentPhone"
+                        placeholder="+91 XXXXX XXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Course</label>
+
+                    <select id="studentCourse" required>
+
+                        <option value="">Select course</option>
+                        <option>B.Tech CSE</option>
+                        <option>BCA</option>
+                        <option>MBA</option>
+                        <option>BBA</option>
+                        <option>B.Sc</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Semester</label>
+
+                    <select id="studentSemester" required>
+
+                        <option value="">Select semester</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="modalCancel"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    <i class="fa-solid fa-check"></i>
+                    Add Student
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- CHART.JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"
+></script>
+
+<script src="index.js"></script>
+
+</body>
+</html>
+```
